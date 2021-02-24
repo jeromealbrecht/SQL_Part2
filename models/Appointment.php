@@ -35,14 +35,14 @@ class Appointment {
         return $list;
     }
 
-    public function getApp($idAppointment){
+    public function getApp($userid){
         $sql = 'SELECT `appointments`.`id` as `idAppointment`, `patients`.`id` 
         as `idPatients`, `appointments`.`dateHour`,`patients`.`lastname`,
         `patients`.`firstname`,`patients`.`mail`, `patients`.`phone`
         FROM `appointments` INNER JOIN `patients` 
-        ON `appointments`.`idPatients` = `patients`.`id` WHERE `appointments`.`id` = :idAppointment ';
+        ON `appointments`.`idPatients` = `patients`.`id` WHERE `appointments`.`id` = :userid ';
         $stmt = $this->_pdo->prepare($sql);
-        $stmt->bindValue(':idAppointment', $idAppointment, PDO::PARAM_INT);
+        $stmt->bindValue(':userid', $userid, PDO::PARAM_INT);
         $stmt->execute();
         $appointment = $stmt->fetch(PDO::FETCH_OBJ);
         return $appointment;
@@ -59,4 +59,13 @@ class Appointment {
         return $stmt->execute();
     }
 
+    public function idAPP($userid){
+        $sql = 'SELECT * FROM `appointments` WHERE `idPatients` = :userid';
+        $stmt = $this->_pdo->prepare($sql);
+        $stmt->bindValue(':userid', $userid, PDO::PARAM_INT);
+        $stmt->execute();
+        $list = $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $list;
+    }
+    
 }

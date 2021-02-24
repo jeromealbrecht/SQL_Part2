@@ -25,19 +25,12 @@
           <i class="fas fa-envelope"></i>
         </a>
       </li>
-      <li class="nav-item avatar dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <img src="https://risibank.fr/cache/stickers/d2124/212442-full.jpg" class="img-fluid rounded-circle z-depth-0"
-            alt="avatar image">
-        </a>
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
           aria-labelledby="navbarDropdownMenuLink-55">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
-      </li>
     </ul>
   </div>
 </nav>

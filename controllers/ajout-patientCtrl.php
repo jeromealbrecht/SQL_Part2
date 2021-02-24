@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 
-}
+
 
 
 /// Gestion du rendu des vues

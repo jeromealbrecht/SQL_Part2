@@ -1,16 +1,24 @@
 <?php
 
 require_once(dirname(__FILE__).'/../models/Patient.php');
+require_once(dirname(__FILE__).'/../models/Appointment.php');
 
-$patients = new Patient(); //Nouvelle instance de class Patient
 $userid = intval(trim(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT)));
+$patients = new Patient(); //Nouvelle instance de class Patient
+$appointment = new Appointment(); //Nouvelle instance de class Appointment
+$profilPatient = $patients->getProfil($userid);
 
+$rdv = $appointment->listApp();
+$uniquerdv = $appointment->idAPP($userid);
 
+if ($uniquerdv ===false){
+    header('location: index.php');
+}
 
 if ($userid <= 0){
     header('location: /index.php');
 } else {
-    $profilPatient = $patients->getProfil($userid);
+    
     if(!$profilPatient){
         header('location: /index.php');
     }

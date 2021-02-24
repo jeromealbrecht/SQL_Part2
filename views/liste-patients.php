@@ -48,6 +48,8 @@ foreach ($patients as $patient){ ?>
                 <a href="/controllers/ajout-patientCtrl.php"><button
                         class="btn secondary-color text-white btn-block my-4">Retourner sur le
                         formulaire d'ajout</button></a>
+                        <a href="/controllers/list-rdvCtrl.php"><button
+                        class="btn secondary-color text-white btn-block my-4">Accéder à la liste des rendez-vous</button></a>
 
             </div>
         </div>
