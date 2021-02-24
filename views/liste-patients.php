@@ -3,6 +3,7 @@
         <div class="col-sm-10 col-xl-10">
             <div class="border border-light p-5">
                 <table class="table text-center">
+                <h2 class="text-center">Liste des patients</h2>
                     <thead>
                         <tr>
                             <th scope="col">Id :</th>

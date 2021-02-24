@@ -5,10 +5,10 @@ require_once(dirname(__FILE__).'/../models/Appointment.php');
 
 $rdv = new Appointment(); //Nouvelle instance de class Appointment
 $idAppointment = intval(trim(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT)));
+
 if ($idAppointment < 0){
     header('location: /index.php');
 }
-
 
 $profilrdv = $rdv->getApp($idAppointment);
 

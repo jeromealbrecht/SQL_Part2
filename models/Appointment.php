@@ -67,5 +67,19 @@ class Appointment {
         $list = $stmt->fetchAll(PDO::FETCH_OBJ);
         return $list;
     }
-    
+
+    public function deleteApp($userid){
+
+        try {
+
+            $sql = 'DELETE FROM `appointments` WHERE `id`= :userid';
+            $stmt = $this->_pdo->prepare($sql);
+            $stmt->bindValue(':userid', $userid, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->execute();
+        } catch (Exception $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+        
+    } 
 }
