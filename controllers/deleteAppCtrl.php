@@ -13,28 +13,8 @@ if ($idAppointment <= 0){ // si l'id est inférieur ou = à 0 = on renvoie sur l
 
 $remove = $appointment->deleteApp($idAppointment); // Suppression 
 
-
 $code = $remove == 0 ? 0 : 1;
-
 
 header('location: /controllers/list-rdvCtrl.php?err='.$code);
 
-//include(dirname(__FILE__).'/../views/list-rdv.php');
-
-// include(dirname(__FILE__).'/../views/templates/header.php');
-
-// if ( confirm( "Voulez-vous vraiment supprimer le patient?" ) ) {
-//     Code à éxécuter si le l'utilisateur clique sur "OK"
-// } else {
-//     Code à éxécuter si l'utilisateur clique sur "Annuler" 
-// }
-
-// if($remove===true){
-//     include(dirname(__FILE__).'/../views/delete-ok.php');
-//     include(dirname(__FILE__).'/../views/list-rdv.php');
-
-// } else {
-//     include(dirname(__FILE__).'/../views/list-rdv.php');
-// }
-
-// include(dirname(__FILE__).'/../views/templates/footer.php');
+?>

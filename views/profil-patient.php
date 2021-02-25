@@ -24,19 +24,21 @@
                     <table class="table text-center">
                         <thead>
                             <tr>
+                                <th scope="col">Edit :</th>
                                 <th scope="col">Id :</th>
-
                                 <th scope="col">Date & heure :</th>
                             </tr>
                         </thead>
                         <tbody>
-
-
                             <?php
 
 foreach ($uniquerdv as $value){ ?>
 
                             <tr>
+                            <td class="alert alert-primary text-center"><a
+                                        href="/controllers/modify-patientCtrl.php?id=<?= $value->idPatients ?>"><i
+                                            class="far fa-edit"><?= $value->idPatients ?></i></a>
+                                </td>
                                 <td class="alert alert-primary text-center"><a
                                         href="/controllers/profil-rdvCtrl.php?id=<?= $value->idPatients ?>"><i
                                             class="fas fa-portrait"><?= $value->idPatients ?></i></a>
@@ -53,7 +55,8 @@ foreach ($uniquerdv as $value){ ?>
 
                         </tbody>
                     </table>
-                    <a href="/controllers/ajout-patientCtrl.php"><button
+                    
+                            <a href="/controllers/ajout-patientCtrl.php"><button
                             class="btn secondary-color text-white btn-block my-4">Retourner sur le
                             formulaire d'ajout</button></a>
 

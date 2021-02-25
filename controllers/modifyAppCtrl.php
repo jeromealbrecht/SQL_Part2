@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     //On vérifie l'existence et on nettoie
     $dateHour = trim(filter_input(INPUT_POST, 'dateHour', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES));
     // On teste si le champ n'est pas vide
-    var_dump($dateHour);
 
         if(!empty($dateHour)){
         $testRegex = preg_match(REGEXP_MEET, $dateHour);
@@ -38,18 +37,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     /***********************/
 
     $idPatients = trim(filter_input(INPUT_POST, 'idPatients', FILTER_SANITIZE_NUMBER_INT));
-var_dump($idPatients);
 
     // Si il n'y a pas d'erreur, alors, on enregistre en bdd
         if(empty($errorArray)){
             $Appoint = new Appointment($dateHour, $idPatients); // Création d'une instance d'objet
             $result = $Appoint->editrdv($idAppointment); // Appel de la méthode editrdv addPatient dans la class Patient
             //header('location: /index.php');
-            var_dump($result);
+  
         }
 }
     //======================================================
-
 
 include(dirname(__FILE__).'/../views/templates/header.php');
 

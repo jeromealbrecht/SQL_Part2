@@ -8,6 +8,7 @@ $errorArray = array();
 $userid = intval(trim(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT)));
 $patient = new Patient(); //Nouvelle instance de class Patient
 
+
 $profilPatient = $patient->getProfil($userid);
 if($profilPatient == false){
     header('location: /index.php');
