@@ -68,15 +68,15 @@ class Appointment {
         return $list;
     }
 
-    public function deleteApp($userid){
+    public function deleteApp($idAppointment){
 
         try {
 
-            $sql = 'DELETE FROM `appointments` WHERE `id`= :userid';
+            $sql = 'DELETE FROM `appointments` WHERE `id`= :idAppointment';
             $stmt = $this->_pdo->prepare($sql);
-            $stmt->bindValue(':userid', $userid, PDO::PARAM_INT);
-            $stmt->execute();
-            return $stmt->execute();
+            $stmt->bindValue(':idAppointment', $idAppointment, PDO::PARAM_INT);
+            $stmt->execute(); //True or False
+            return $stmt->rowCount();
         } catch (Exception $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }

@@ -2,9 +2,13 @@
     <div class="row justify-content-center">
         <div class="col-sm-10 col-xl-10">
             <div class="border border-light p-5">
-                <table class="table text-center">
                 <h2 class="text-center">Liste des rendez-vous</h2>
+                <?php if (isset($_GET['err'])){
+                    echo $_GET['err'] == 1 ? 'Le rendez-vous a bien été supprimé' : 'La suppression n\'a pu s\'effectuer correctement';
 
+                } ?>
+                
+                <table class="table text-center">
                     <thead>
                         <tr>
                             <th scope="col"></th>
@@ -19,18 +23,18 @@
 
                         <?php
 
-foreach ($rdv as $value){ ?>
+                        foreach ($rdv as $value){ ?>
 
                         <tr>
-                        <td class="alert alert-primary text-center"><a
+                            <td class="alert alert-primary text-center"><a
                                     href="/controllers/deleteAppCtrl.php?id=<?= $value->idAppointment ?>"><i
-                                    class="fas fa-window-close"> Remove</i></a>
-                                    
-                        </td>
+                                        class="fas fa-window-close"> Remove</i></a>
+
+                            </td>
                             <td class="alert alert-primary text-center"><a
                                     href="/controllers/profil-rdvCtrl.php?id=<?= $value->idAppointment ?>"><i
-                                    class="fas fa-portrait"><?= $value->idPatients ?></i></a>
-                        </td>
+                                        class="fas fa-portrait"><?= $value->idPatients ?></i></a>
+                            </td>
                             <td class="alert alert-primary text-center"><a
                                     href="profil-patientCtrl.php?id=<?= $value->idAppointment ?>"><?= $value->lastname ?></a>
                             </td>
@@ -51,11 +55,12 @@ foreach ($rdv as $value){ ?>
                 <a href="/controllers/ajout-patientCtrl.php"><button
                         class="btn secondary-color text-white btn-block my-4">Retourner sur le
                         formulaire d'ajout patient</button></a>
-                        <a href="/controllers/list-patientCtrl.php"><button
-                        class="btn secondary-color text-white btn-block my-4">Accéder à la liste des patients</button></a>
-                        <a href="/controllers/rendez-vousCtrl.php"><button
+                <a href="/controllers/list-patientCtrl.php"><button
+                        class="btn secondary-color text-white btn-block my-4">Accéder à la liste des
+                        patients</button></a>
+                <a href="/controllers/rendez-vousCtrl.php"><button
                         class="btn secondary-color text-white btn-block my-4">Ajouter un rendez-vous</button></a>
-                       
+
 
             </div>
         </div>
