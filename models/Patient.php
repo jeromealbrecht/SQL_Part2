@@ -65,4 +65,18 @@ class Patient {
         $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
         return $stmt->execute();
     }
+
+    public function deleteOnePatient($idPatient){
+
+   // try {
+
+            $sql = 'DELETE FROM `patients` WHERE `id`= :idPatient';
+            $stmt = $this->_pdo->prepare($sql);
+            $stmt->bindValue(':idPatient', $idPatient, PDO::PARAM_INT);
+            $stmt->execute(); //True or False
+            return $stmt->rowCount();
+      //  } catch (Exception $e) {
+           // echo 'Exception reçue : ',  $e->getMessage(), "\n";
+       // }
+    }
 }

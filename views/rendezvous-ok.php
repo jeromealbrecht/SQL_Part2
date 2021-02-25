@@ -8,5 +8,6 @@
                     class="btn secondary-color text-white btn-block my-4">Accéder à la liste des patients</button></a>
                     <a href="/controllers/list-rdvCtrl.php"><button
                     class="btn secondary-color text-white btn-block my-4">Accéder à la liste des rendez-vous</button></a>
-            </div>
+                    <a href="/controllers/rendez-vousCtrl.php"><button
+                    class="btn secondary-color text-white btn-block my-4">Ajouter un autre rendez-vous</button></a>            </div>
         </div>

@@ -1,11 +1,17 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-sm-10 col-xl-10">
+            <?php if (isset($_GET['err'])){
+                    echo $_GET['err'] == 1 ? 'La ligne patient a bien été supprimée' : 'La suppression n\'a pu s\'effectuer correctement';
+
+                } ?>
+            <h2 class="text-center">Liste des patients</h2>
             <div class="border border-light p-5">
                 <table class="table text-center">
-                <h2 class="text-center">Liste des patients</h2>
+
                     <thead>
                         <tr>
+                            <th scope="col"></th>
                             <th scope="col">Id :</th>
                             <th scope="col">Nom :</th>
                             <th scope="col">Prénom :</th>
@@ -24,8 +30,14 @@
 foreach ($patients as $patient){ ?>
 
                         <tr>
-                            <td class="alert alert-primary text-center"><a href="profil-patientCtrl.php?id=<?= $patient->id ?>"><i
-                                    class="fas fa-portrait"><?= $patient->id ?></i></a>
+                            <td class="alert alert-primary text-center"><a
+                                    href="/controllers/DelPat-AppCtrl.php?id=<?= $patient->id ?>"><i
+                                        class="fas fa-window-close"> Remove</i></a>
+
+                            </td>
+                            <td class="alert alert-primary text-center"><a
+                                    href="profil-patientCtrl.php?id=<?= $patient->id ?>"><i
+                                        class="fas fa-portrait"><?= $patient->id ?></i></a>
                             </td>
                             <td class="alert alert-primary text-center"><?= $patient->lastname ?>
                             </td>
@@ -49,8 +61,9 @@ foreach ($patients as $patient){ ?>
                 <a href="/controllers/ajout-patientCtrl.php"><button
                         class="btn secondary-color text-white btn-block my-4">Retourner sur le
                         formulaire d'ajout</button></a>
-                        <a href="/controllers/list-rdvCtrl.php"><button
-                        class="btn secondary-color text-white btn-block my-4">Accéder à la liste des rendez-vous</button></a>
+                <a href="/controllers/list-rdvCtrl.php"><button
+                        class="btn secondary-color text-white btn-block my-4">Accéder à la liste des
+                        rendez-vous</button></a>
 
             </div>
         </div>
