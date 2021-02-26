@@ -5,8 +5,6 @@ require_once(dirname(__FILE__).'/../models/Patient.php');
 require_once(dirname(__FILE__).'/../utils/regexp.php'); 
 
 $errorArray = array();
-
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     //lastname
@@ -111,7 +109,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 
-/// Gestion du rendu des vues
+
+// Gestion du rendu des vues
 include(dirname(__FILE__).'/../views/templates/header.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && empty($errorArray)){

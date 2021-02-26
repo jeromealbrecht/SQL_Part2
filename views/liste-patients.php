@@ -8,7 +8,6 @@
             <h2 class="text-center">Liste des patients</h2>
             <div class="border border-light p-5">
                 <table class="table text-center">
-
                     <thead>
                         <tr>
                             <th scope="col"></th>
@@ -18,17 +17,11 @@
                             <th scope="col">Date de naissance :</th>
                             <th scope="col">Téléphone :</th>
                             <th scope="col">Mail :</th>
-
-
                         </tr>
                     </thead>
                     <tbody>
-
-
                         <?php
-
-foreach ($patients as $patient){ ?>
-
+                    foreach ($patients as $patient){ ?>
                         <tr>
                             <td class="alert alert-primary text-center"><a
                                     href="/controllers/DelPat-AppCtrl.php?id=<?= $patient->id ?>"><i
@@ -50,12 +43,9 @@ foreach ($patients as $patient){ ?>
                             <td class="alert alert-primary text-center"><?= $patient->mail ?>
                             </td>
                         </tr>
-
-
                         <?php
 }
 ?>
-
                     </tbody>
                 </table>
                 <a href="/controllers/ajout-patientCtrl.php"><button
@@ -64,6 +54,7 @@ foreach ($patients as $patient){ ?>
                 <a href="/controllers/list-rdvCtrl.php"><button
                         class="btn secondary-color text-white btn-block my-4">Accéder à la liste des
                         rendez-vous</button></a>
-
             </div>
         </div>
+    </div>
+</div>
