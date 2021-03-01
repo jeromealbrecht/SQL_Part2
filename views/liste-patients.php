@@ -1,11 +1,25 @@
 <div class="container mt-5">
-    <div class="row justify-content-center">
+    <h2 class="text-center ">Liste des patients</h2>
+    <div class="row justify-content-center ">
+
+        <div class="col-md-6">
+            <form action="" method="GET">
+                <div class="input-group rounded">
+                    <input type="search" class="form-control rounded" name="search" placeholder="Rechercher un patient"
+                        aria-label="Search" aria-describedby="search-addon" value="<?= $resultSearch ?? '' ?>" />
+                    <span class="input-group-text border-0" id="search-addon">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <?= $errorArray['search_error'] ?? '' ?>
+        </div>
         <div class="col-sm-10 col-xl-10">
             <?php if (isset($_GET['err'])){
                     echo $_GET['err'] == 1 ? 'La ligne patient a bien été supprimée' : 'La suppression n\'a pu s\'effectuer correctement';
 
                 } ?>
-            <h2 class="text-center">Liste des patients</h2>
+
+
             <div class="border border-light p-5">
                 <table class="table text-center">
                     <thead>

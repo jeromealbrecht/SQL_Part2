@@ -32,9 +32,11 @@ class Patient {
 
 
 
-    public function listPatient(){
-        $sql = 'SELECT * FROM `patients`';
-        $stmt = $this->_pdo->query($sql);
+    public function listPatient($resultSearch){
+        $sql = 'SELECT * FROM `patients` WHERE `lastname` LIKE :resultSearch ';
+        $stmt = $this->_pdo->prepare($sql);
+        $stmt->bindValue(':resultSearch',"%".$resultSearch."%", PDO::PARAM_STR);
+        $stmt->execute();
         $list = $stmt->fetchAll(PDO::FETCH_OBJ);
         return $list;
     }
@@ -79,4 +81,15 @@ class Patient {
            // echo 'Exception reçue : ',  $e->getMessage(), "\n";
        // }
     }
+
+    public function searchPatient($resultSearch){
+
+    $sql = 'SELECT * FROM `patients` WHERE `lastname`= :resultSearch LIKE "%'.$resultSearch.'%" ';
+    $stmt = $this->_pdo->prepare($sql);
+    $stmt->bindValue(':resultSearch', $resultSearch, PDO::PARAM_STR);
+    return $stmt->execute(array("%".$resultSearch."%")); //True or False
+    }
+
 }
+
+// ORDER BY `lastname` DESC
